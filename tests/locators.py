@@ -7,15 +7,15 @@ class TestLocators:
     # поле Email в форме регистрации
     FIELD_EMAIL = By.XPATH, '//fieldset[2]/div/div/input'
     # поле Пароль в форме регистрации
-    FIELD_PASSWORD_REGISTRATION = By.XPATH, '//fieldset[3]/div/div/input'
+    FIELD_PASSWORD_REGISTRATION = By.NAME, "Пароль"
 #   #кнопка регистрации в форме регистрации
     BUTTON_REGISTER = By.XPATH, '//form/button'
     #кнопка Войти в аккаунт
-    BUTTON_ENTER_TO_ACCOUNT = By.XPATH, '//section[2]/div/button'
+    BUTTON_ENTER_TO_ACCOUNT = By.XPATH, '//button[text()="Войти в аккаунт"]'
     #поле Email в форме входа
-    FIELD_EMAIL_ENTERFORM = By.XPATH, '//fieldset[1]/div/div/input'
+    FIELD_EMAIL_ENTERFORM = By.NAME, "name"
     #поле Пароль в форме входа
-    FIELD_PASSWORD_ENTERFORM = By.XPATH, '//fieldset[2]/div/div/input'
+    FIELD_PASSWORD_ENTERFORM = By.XPATH, '//*[@type="password"]'
     #кнопка Войти в форме входа
     BUTTON_ENTER_ENTERFORM = By.XPATH, '//form/button'
     #кнопка Личный кабинет
@@ -36,11 +36,14 @@ class TestLocators:
     RESTORE_PASSWORD = By.LINK_TEXT, "Восстановить пароль"
     # кнопка войти в форме восстановления пароля
     ENTER_BUTTON = By.LINK_TEXT, "Войти"
-    # атрибут класса Булки
-    BUTTON_BUN_CLASS = By.XPATH, '//section/div/div[1]'
-    # атрибут класса Начинки
-    BUTTON_FILLING_CLASS = By.XPATH, '//section/div/div[3]'
-    # атрибут класса соусы
-    BUTTON_SOUCE_CLASS = By.XPATH, '//section/div/div[2]'
+    # переход ко вкладке Булки
+    DISPLAYED_BUN = By.XPATH, '//*[@alt="Флюоресцентная булка R2-D3"]'
+    # переход ко вкладке Начинки
+    DISPLAYED_FILLING = By.XPATH, '//*[@alt="Говяжий метеорит (отбивная)"]'
+    # переход ко вкладке соусы
+    DISPLAYED_SOUCE = By.XPATH, '//*[@alt="Соус Spicy-X"]'
+    # КНОПКА Сохранить
+    BUTTON_SAVE = By.XPATH, '//button[text()="Сохранить"]'
+
 
 

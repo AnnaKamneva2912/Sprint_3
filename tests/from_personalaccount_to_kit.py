@@ -1,15 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import TestLocators
 
-def test_from_personalaccount_to_kit():
-    driver = webdriver.Chrome()
+def test_from_personalaccount_to_kit(driver, email, password):
     driver.get("https://stellarburgers.nomoreparties.site")
-    driver.find_element(*TestLocators.BUTON_ENTER_TO_ACCOUNT).click()
+    driver.find_element(*TestLocators.BUTTON_ENTER_TO_ACCOUNT).click()
     WebDriverWait(driver, 10)
-    driver.find_element(*TestLocators.FIELD_EMAIL_ENTERFORM).send_keys("class_class@yandex.ru")
-    driver.find_element(*TestLocators.FIELD_PASSWORD_ENTERFORM).send_keys("1234A!")
+    driver.find_element(*TestLocators.FIELD_EMAIL_ENTERFORM).send_keys(email)
+    driver.find_element(*TestLocators.FIELD_PASSWORD_ENTERFORM).send_keys(password)
     driver.find_element(*TestLocators.BUTTON_ENTER_ENTERFORM).click()
     WebDriverWait(driver, 10)
     driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()

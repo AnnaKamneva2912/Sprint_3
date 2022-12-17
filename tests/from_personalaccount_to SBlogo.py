@@ -1,19 +1,16 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import TestLocators
 
-def test_from_personalaccount_to_SB_logo():
-    driver = webdriver.Chrome()
+def test_from_personalaccount_to_SB_logo(driver, email, password):
     driver.get("https://stellarburgers.nomoreparties.site")
-    driver.find_element(By.XPATH, '//section[2]/div/button').click()
+    driver.find_element(*TestLocators.BUTTON_ENTER_TO_ACCOUNT).click()
     WebDriverWait(driver, 10)
-    driver.find_element(By.XPATH, '//fieldset[1]/div/div/input').send_keys("class_class@yandex.ru")
-    driver.find_element(By.XPATH, '//fieldset[2]/div/div/input').send_keys("1234A!")
-    driver.find_element(By.XPATH, '//form/button').click()
+    driver.find_element(*TestLocators.FIELD_EMAIL_ENTERFORM).send_keys(email)
+    driver.find_element(*TestLocators.FIELD_PASSWORD_ENTERFORM).send_keys(password)
+    driver.find_element(*TestLocators.BUTTON_REGISTER).click()
     WebDriverWait(driver, 10)
-    driver.find_element(By.XPATH, 'html/body/div/div/header/nav/a').click()
+    driver.find_element(*TestLocators.BUTTON_PERSONAL_ACCOUNT).click()
     WebDriverWait(driver, 10)
-    driver.find_element(By.XPATH, '//header/nav/div').click()
+    driver.find_element(*TestLocators.SB_LOGO).click()
     current_url = driver.current_url
     assert current_url == 'https://stellarburgers.nomoreparties.site/'
